@@ -4,3 +4,8 @@ services:
     build: .
     ports:
       - "8000:8000"
+    environment:
+      - FLASK_DEBUG=1
+      - FLASK_APP=index.py
+    volumes:
+      - .:/app
