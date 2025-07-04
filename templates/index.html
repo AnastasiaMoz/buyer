@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Расчет стоимости</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- МОДАЛЬНОЕ ОКНО ЗП-->
+    <div class="modal" id="salaryModal">
+        <div class="modal-content">
+            <!-- Кнопка Закрыть -->
+            <span class="close" onclick="closeModal()">&times;</span>
+            <!-- Заголовок -->
+            <h3>Средняя заработная плата по субъектам</h3>
+            <!-- Поле поиска -->
+            <input type="text" id="searchRegion" placeholder="Введите название объекта..." class="search-input">
+            <!-- Заголовки таблицы -->
+            <div class="table-header">
+                <span class="header-object">Объект</span>
+                <span class="header-salary">Зарплата (руб.)</span>
+            </div>
+            <!-- Прокрутка -->
+            <div class="scrollable-content">
+            <!-- Изменяемые поля -->
+                <div id="salaryInputsContainer">
+
+                </div>
+            </div>
+
+            <!-- Кнопка Сохранить -->
+            <div class="modal-footer">
+                <div class="input-with-button">
+                    <button class="btn-save">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Данные о ЗП -->
+    <div 
+        id="salary-data" style="display:none;" data-salary='{{ salary_data | tojson }}'>
+    </div>
+     
+    <!-- ШАПКА -->
+    <header class="header">
+        <h1 class="main-title">Расчет стоимости</h1>
+        <div class="header-buttons">
+            <button class="header-btn btn-requirements">Требования</button>
+            <button class="header-btn btn-salary">Заработная плата</button>
+        </div>
+    </header>
+    
+    <!-- КОНТЕЙНЕРЫ -->
+    <div class="container">
+
+        <!-- Проверка тайника -->
+        <div class="section section-left">
+            <h2>Проверка тайника</h2>
+            <!-- Заголовки -->
+            <div class="parameter-header">
+                <span class="header-work">Вид работ</span>
+                <span class="header-duration">Время (мин.)</span>
+            </div>
+            <div class="parameter-block">
+                <span class="parameter-name">Время на дорогу (туда/обратно)</span>
+                <input type="number" class="parameter-input" id="travel_time" value="{{ travel_time }}" min="0" step="1"> 
+            </div>
+            <div class="parameter-block">
+                <span class="parameter-name">Проведение проверки</span>
+                <input type="number" class="parameter-input" id="inspection" value="{{ inspection }}" min="0" step="1"> 
+            </div>
+            <div class="parameter-block">
+                <span class="parameter-name">Изучение легенды</span>
+                <input type="number" class="parameter-input" id="legend" value="{{ legend }}" min="0" step="1"> 
+            </div>
+            <div class="parameter-block">
+                <span class="parameter-name">Изучение чеклиста</span>
+                <input type="number" class="parameter-input" id="checklist" value="{{ checklist }}" min="0" step="1"> 
+            </div>
+            <div class="parameter-block">
+                <span class="parameter-name">Заполнение отчета</span>
+                <input type="number" class="parameter-input" id="report" value="{{ report }}" min="0" step="1"> 
+            </div>
+            <div class="calculation-block">
+                <span class="calculation-name">Итоговая длительность:</span>
+                <span class="calculation-value" id="calc_duration">{{ calc_duration }} ч.</span>
+            </div>
+        </div>
+        
+        <!-- Проверка куратора -->
+        <div class="section section-right">
+            <h2>Проверка куратора</h2>
+            <!-- Заголовки -->
+            <div class="parameter-header">
+                <span class="header-work">Вид работ</span>
+                <span class="header-duration">Время (мин.)</span>
+            </div>
+            <div class="parameter-block">
+                <span class="parameter-name">Длительность аудио</span>
+                <input type="number" class="parameter-input" id="audio_duration" value="{{ audio_duration }}" min="0" step="1"> 
+            </div>
+            <div class="parameter-block">
+                <span class="parameter-name">Поиск тайника</span>
+                <input type="number" class="parameter-input" id="find_cache" value="{{ find_cache }}" min="0" step="1"> 
+            </div>
+            <div class="calculation-block">
+                <span class="calculation-name">Итоговая длительность:</span>
+                <span class="calculation-value" id="check_duration">{{ check_duration }} ч.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Дополнительно</h2>
+    </div>
+        <div class="section">
+        <h2>Предварительная стоимость</h2>
+    </div>
+
+    <script src="/static/script.js"></script>
+    
+</body>
+</html>

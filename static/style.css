@@ -1,0 +1,375 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+}
+/* Шапка*/
+.header {
+    
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #005BFF;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+
+}
+/* Расчет стоимости*/
+.main-title {
+    color: white;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin : 0;
+    margin-left: 20px; 
+}
+
+/* Секции*/
+.section {
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/*Серые блоки параметров */
+.parameter-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+}
+
+.parameter-name {
+    font-weight: 500;
+    color: #555;
+}
+
+.parameter-value {
+    font-weight: 600;
+    color: #333;
+}
+
+/*Синие блоки расчетов */
+.calculation-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f7ff;
+    padding: 12px 16px;
+    margin-top: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #005BFF;
+}
+
+.calculation-name {
+    font-weight: 600;
+    color: #005BFF;
+}
+
+.calculation-value {
+    font-weight: 700;
+    color: #005BFF;
+}
+
+/*Кнопки */
+.header-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.header-btn {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.header-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-requirements {
+    background-color: white;
+    color: #005BFF;
+    border: 1px solid #005BFF;
+}
+
+.btn-salary {
+    background-color: white;
+    color: #005BFF;
+    border: 1px solid #005BFF;
+    margin-right: 20px;
+}
+
+h2 {
+    color: #222;
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+/*Контейнер*/
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; 
+}
+
+/*Левая и правая секция*/
+.section-left,
+.section-right {
+    flex: 1; 
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/*Название параметров*/
+.parameter-name {
+    font-weight: 500;
+    color: #555;
+    min-width: 200px; 
+}
+
+/*Поля ввода*/
+.parameter-input {
+    width: 60px; 
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 16px;
+    margin-left: 0px;
+    margin-left: 0px;
+}
+
+#travel_time {
+    margin-right: 2px; 
+}
+/*Единицы измерения*/
+.parameter-unit {
+    font-weight: 500;
+    color: #555;
+}
+
+.parameter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 8px;
+    padding: 0 16px;
+}
+
+.header-work {
+    min-width: 200px; 
+}
+
+.header-duration {
+    text-align: right;
+    width: 100px; 
+    margin-right: 0px;
+}
+
+/*Модальное окно ЗП*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+/* Содержание */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    /* Размеры */
+    height: 80vh; 
+    max-width: 600px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    /* Позиция */
+    position: absolute;
+    left: 50%;
+    top: 10%;    
+    bottom: 50px;   
+    transform: translateX(-50%);
+    overflow: visible;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+    text-align: left;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+    text-align: right;
+}
+
+/*Поле ввода*/
+.search-input,
+.comment-input {
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%; 
+    max-width: 100%; 
+}
+.search-input {
+    width: 60%;
+    margin-bottom: 15px;
+    font-size: 16px;
+    padding: 5px; 
+}
+.comment-input {
+    flex-grow: 1;
+}
+
+/*Поле с кнопкой*/
+.input-with-button {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: 20px;
+}
+
+/*Кнопка Сохранить */
+.btn-save {
+    background-color: #005BFF;
+    color: white;
+    border: 1px solid #005BFF;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 12px; 
+    font-weight: 700;     
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+    background-color: #0047cc; 
+    border-color: #0047cc;
+}
+
+.modal-body-wrapper {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+/*Прокручивание таблицы*/
+.table-container {
+    max-height: 430px; 
+    overflow-y: auto;
+}
+.table-container table {
+    width: 100%;
+    min-width: 100%;
+    table-layout: fixed;
+}
+
+/*Область прокрутки*/
+.scrollable-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 8px;
+    margin-top: 10px;
+}
+.scrollable-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+}
+
+/*Область с кнопкой*/
+.modal-footer {
+    position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    padding-top: 10px;
+    z-index: 10;
+    border-top: 1px solid #eee;
+}
+.modal-content h3 {
+    color: #0047cc;
+    margin: 0 0 20px 0;
+}
+/*Заголовки таблицы*/
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.header-object {
+    font-weight: 600;
+    color: black;
+    margin-left: 5px;
+}
+
+.header-salary {
+    font-weight: 600;
+    color: black;
+    margin-right: 15px;
+}
