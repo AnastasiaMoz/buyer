@@ -7,7 +7,7 @@ body {
     line-height: 1.6;
     background-color: #f0f0f0;
 }
-/* Шапка*/
+
 .header {
     
     position: sticky;
@@ -126,7 +126,6 @@ h2 {
     border-bottom: 1px solid #eee;
 }
 
-/*Контейнер*/
 .container {
     display: flex;
     justify-content: space-between;
@@ -313,7 +312,6 @@ h2 {
     padding-right: 10px;
 }
 
-/*Прокручивание таблицы*/
 .table-container {
     max-height: 430px; 
     overflow-y: auto;
@@ -352,6 +350,7 @@ h2 {
 .modal-content h3 {
     color: #0047cc;
     margin: 0 0 20px 0;
+    font-size: 16px;
 }
 /*Заголовки таблицы*/
 .table-header {
@@ -371,5 +370,232 @@ h2 {
 .header-salary {
     font-weight: 600;
     color: black;
-    margin-right: 15px;
+    margin-left: 130px;
 }
+
+.header-explanation {
+    font-weight: 600;
+    color: black;
+    margin-right: 15px;
+    flex-grow: 1;
+    text-align: right;
+}
+#requirementInputsContainer .requirement-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.parameter-explanation {
+    flex: 0 0 43%; 
+    white-space: normal; 
+    word-wrap: break-word; 
+    margin-left: 40px;
+}
+
+/* ДОПОЛНИТЕЛЬНО 1*/
+.select-with-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.select-with-price select {
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.select-with-price .price {
+    min-width: 100px;
+    text-align: right;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+#sum_price_join {
+    font-weight: bold;
+    color: #0047cc;
+    margin-right: 20px;
+}
+
+#price_join {
+    text-align: right;
+    margin-right: 20px;
+    font-weight: bold;
+    color: #0047cc;
+    font-size: 16px;
+}
+
+
+/* ПРЕДВАРИТЕЛЬНАЯ СТОИМОСТЬ*/
+    .cost-table {
+        width: 100%; 
+        border-collapse: collapse; 
+        font-family: Arial, sans-serif;
+        margin: 15px 0;
+
+    }
+
+    
+    .cost-table th {
+        background-color: #005BFF; 
+        color: white;
+        padding: 10px; 
+        text-align: center;
+        border: 1px solid #005BFF; 
+    }
+    
+    .cost-table td {
+        padding: 8px 10px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border: 1px solid #ddd; 
+    }
+    .cost-table td:nth-child(6) {
+        height: 80px;     
+        vertical-align: middle; 
+        box-sizing: border-box; 
+
+    }
+
+    .cost-table th:nth-child(4) {
+        background-color: #20c9a7; 
+        color: white; 
+        font-weight: bold;
+    }
+
+    .cost-table th:nth-child(8) {
+        background-color: #20c9a7; 
+        color: white;
+        font-weight: bold;
+    }
+
+    .cost-table td:nth-child(4) {
+        background-color: #c0fff2; 
+        font-weight: bold;
+    }
+
+    .cost-table td:nth-child(8) {
+        background-color: #c0fff2; 
+        font-weight: bold;
+    }
+    
+    .cost-table tr:nth-child(even) {
+        background-color: #f8f8f8;
+    }
+    
+    .cost-table tr:hover {
+        background-color: #f0fdfb;
+    }
+
+       .object-select {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #3aafa9;
+        border-radius: 4px;
+        background-color: white;
+        color: #333;
+        font-size: 14px;
+        outline: none;
+    }
+    
+    .object-select:focus {
+        border-color: #005BFF;
+        box-shadow: 0 0 0 2px rgba(0, 71, 204, 0.2);
+    }
+
+/*ДОПОЛНИТЕЛЬНО 2*/
+.section {
+    margin-bottom: 30px;
+    position: relative; 
+}
+
+.parameter-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.header-work {
+    width: 60%;
+}
+
+.header-duration {
+    width: 40%;
+    text-align: right;
+}
+
+.additional-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.input-with-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-save {
+    background-color: #005BFF;
+    color: white;
+    border: 1px solid #005BFF;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 12px;   
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+    background-color: #0047cc; 
+    border-color: #0047cc;
+}
+
+.total-cost {
+    display: flex;
+    align-items: center;
+}
+
+.dop-name {
+    margin-right: 70px;
+    font-weight: bold;
+    color: #0047cc;
+}
+
+.dop-value {
+    font-weight: bold;
+    color: #0047cc;
+}
+
+td.markup {
+    padding: 8px 4px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif; 
+}
+
+td.markup input[type="number"] {
+    width: 70px; 
+    padding: 8px 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 16px; 
+    font-family: 'Arial', sans-serif; 
+    color: #000; 
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-right: 0px;
+}
+

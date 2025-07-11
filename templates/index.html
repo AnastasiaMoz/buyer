@@ -11,11 +11,9 @@
     <div class="modal" id="salaryModal">
         <div class="modal-content">
             <!-- Кнопка Закрыть -->
-            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="close" onclick="closeModal('salaryModal')">&times;</span>
             <!-- Заголовок -->
             <h3>Средняя заработная плата по субъектам</h3>
-            <!-- Поле поиска -->
-            <input type="text" id="searchRegion" placeholder="Введите название объекта..." class="search-input">
             <!-- Заголовки таблицы -->
             <div class="table-header">
                 <span class="header-object">Объект</span>
@@ -29,10 +27,10 @@
                 </div>
             </div>
 
-            <!-- Кнопка Сохранить -->
+            <!-- Кнопка Сохранить --> 
             <div class="modal-footer">
                 <div class="input-with-button">
-                    <button class="btn-save">Сохранить</button>
+                    <button class="btn-save" onclick="saveSalaryChanges()">Сохранить</button>
                 </div>
             </div>
         </div>
@@ -42,6 +40,39 @@
     <div 
         id="salary-data" style="display:none;" data-salary='{{ salary_data | tojson }}'>
     </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО ТРЕБОВАНИЯ -->
+    <div class="modal" id="requirementModal">
+        <div class="modal-content">
+            <!-- Кнопка Закрыть -->
+            <span class="close" onclick="closeModal('requirementModal')">&times;</span>
+            <!-- Заголовок -->
+            <h3>Требования к работе</h3>
+            <!-- Заголовки таблицы -->
+            <div class="table-header">
+                <span class="header-object">Название</span>
+                <span class="header-salary">Стоимость (руб.)</span>
+                <span class="header-explanation">Пояснение</span>
+            </div>
+            <!-- Прокрутка -->
+            <div class="scrollable-content">
+                <!-- Изменяемые поля -->
+                <div id="requirementInputsContainer"></div>
+            </div>
+
+            <!-- Кнопка Сохранить --> 
+            <div class="modal-footer">
+                <div class="input-with-button">
+                    <button class="btn-save" onclick="saveRequirementChanges()" id="saveRequirementBtn">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Данные о Требованиях-->
+    <div 
+        id="requirement_data" style="display:none;" requirement_data='{{ requirement_data | tojson | safe }}'>
+    </div>
+
      
     <!-- ШАПКА -->
     <header class="header">
@@ -112,14 +143,59 @@
         </div>
     </div>
 
-    <div class="section">
-        <h2>Дополнительно</h2>
-    </div>
-        <div class="section">
-        <h2>Предварительная стоимость</h2>
-    </div>
 
+
+<div class="section">
+    <h2>Дополнительно</h2>
+    <!-- Заголовки -->
+    <div class="parameter-header">
+        <span class="header-work">Вид работ</span>
+        <span class="header-duration">Стоимость</span> 
+    </div>
+    <div id="additionalWorkContainer"></div>
+    <div class="additional-footer">
+        <div class="input-with-button">
+            <button class="btn-save" onclick="addNewRequirement()">+ Добавить требование</button>
+            <div class="total-cost">
+                <span class="dop-name">Итог:</span>
+                <span class="dop-value" id="sum_price_join">0 ₽</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <h2>Предварительная стоимость</h2>
+         <table class="cost-table">
+        <thead>
+            <tr>
+                <th>Объект</th>
+                <th>Часов тайник</th>
+                <th>Ставка/час</th>
+                <th>Затраты тайник</th>
+                <th>Затраты офис</th>
+                <th>Затраты итого</th>
+                <th>Наценка</th>
+                <th>Стоимость</th>
+                <th>Прибыль</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="total-cost">0.00 ₽</td>
+                <td class="markup"><input type="number" class="markup-input" value="${rowData.markup}" min="0" step="1"> %</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <div id="requirement_data" requirement_data='[{"name":"Тестовое требование","price":500,"explanation":"тестовое пояснение"}]'></div>
     <script src="/static/script.js"></script>
-    
 </body>
 </html>
